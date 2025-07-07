@@ -13,11 +13,11 @@ products.forEach((product) =>
           ${product.name}
         </div>
         <div class="product-rating-container">
-          <img src="rating-img/rating-${product.rating.count*10}.png" class="product-rating-img">
-          <div class="product-rating-quantity">87</div>
+          <img src="rating-img/rating-${product.rating.stars*10}.png" class="product-rating-img">
+          <div class="product-rating-quantity">${product.rating.count}</div>
         </div>
         <div class="product-price">
-          ${(product.priceCents/100).toFixed(2)}
+          $${(product.priceCents/100).toFixed(2)}
         </div>
         <div class="product-quantity-container">
             <select class="js-quantity-selector" data-testid="quantity-selector">
@@ -43,3 +43,5 @@ products.forEach((product) =>
       </div>`;
 }
 );
+
+document.querySelector('.js-product-grid').innerHTML=productsHTML;
