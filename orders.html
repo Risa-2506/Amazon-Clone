@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Orders
+    </title>
+    <link rel="stylesheet" href="styles/header-order.css">
+    <link rel="stylesheet" href="styles/order.css">
+  </head>
+
+  <body>
+    <div class="header-orders">
+      <div class="header-order-left">
+        <a href="amazon.html">
+          <img src="header-img/amazon-logo-white.png" class="amazon-header">
+          <img src="header-img/amazon-mobile-logo-white.png" class="amazon-logo-white">
+        </a>
+      </div>
+      <div class="header-order-middle">
+        <input type="text" placeholder="Search" class="header-search">
+        <img src="header-img/search-icon.png" class="search-icon">
+      </div>
+      <div class="header-order-right">
+        <a href="orders.html" class="return-order">
+          <div class="return-text">
+            Returns
+          </div>
+          <div class="order-text">
+            &Orders
+          </div>
+        </a>
+        <a href="cart.html" class="cart">
+          <img src="header-img/cart-icon.png" class="cart-icon-header">
+          <div class="cart-text">Cart</div>
+          <div class="cart-quantity-header">2</div>
+        </a>
+        <div class="hamburger-menu">
+          <img src="header-img/hamburger-menu.png" class="hamburger">
+        </div>
+        <div class="hamburger-dropdown">
+          <a href="orders.html" class="hamburger-return-order">Returns & orders</a>
+          <a href="cart.html" class="hamburger-cart">Cart (<span class="cart-quantity">2</span>)</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="order">
+      <div class="order-summary">
+        <div class="order-title">
+          Your Orders
+        </div>
+        <div class="order-box">
+          <div class="order-details">
+            <div class="placed-total">
+              <div class="order-placed-info">
+                <div class="order-placed-title">
+                  Order Placed:
+                </div>
+                <div class="order-placed-date">
+                  July 2
+                </div>
+              </div>
+              <div class="order-price-info">
+                <div class="order-price-title">
+                  Total:
+                </div>
+                <div class="order-price">
+                  $35.04
+                </div>
+              </div>
+            </div>
+            <div class="order-id-info">
+              <div class="order-id-title">
+                Order ID:
+              </div>
+              <div class="order-id">
+                fc2cf29d-6411-18b2-b75f-d495958d6836
+              </div>
+            </div>
+          </div>
+          <div class="order-info">
+            <div class="order-img-details">
+              <div class="order-cart-img">
+                <img src="products-img/athletic-cotton-socks-6-pairs.jpg" class="order-cart-ref">
+              </div>
+              <div class="order-cart-details">
+                <div class="order-cart-name">
+                  Black and Gray Athletic Cotton Socks - 6 Pairs
+                </div>
+                <div class="order-cart-arrive">
+                  Arriving on: July 15
+                </div>
+                <div class="order-quantity">
+                  Quantity: 1
+                </div>
+                <div class="order-buy">
+                  <button class="buy">
+                    <img src="header-img/buy-again.png" class="buy-icon">
+                    <span class="buy-text">Buy it again</span>
+                  </button>
+                </div>
+                <div class="order-track-max-width">
+                  <button class="button-track">Track Package</button>
+                </div>
+              </div>
+            </div>
+            <div class="order-track">
+              <button class="button-track">Track Package</button>
+            </div>
+          </div>
+          <div class="order-info">
+            <div class="order-img-details">
+              <div class="order-cart-img">
+                <img src="products-img/intermediate-composite-basketball.jpg" class="order-cart-ref">
+              </div>
+              <div class="order-cart-details">
+                <div class="order-cart-name">
+                  Intermediate Size Basketball
+                </div>
+                <div class="order-cart-arrive">
+                  Arriving on: July 15
+                </div>
+                <div class="order-quantity">
+                  Quantity: 1
+                </div>
+                <div class="order-buy">
+                  <button class="buy">
+                    <img src="header-img/buy-again.png" class="buy-icon">
+                    <span class="buy-text">Buy it again</span>
+                  </button>
+                </div>
+                <div class="order-track-max-width">
+                  <button class="button-track">Track Package</button>
+                </div>
+              </div>
+            </div>
+            <div class="order-track">
+              <button class="button-track">Track Package</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script>
+      hamburgerimg=document.querySelector('.hamburger-menu');
+      dropdown=document.querySelector('.hamburger-dropdown')
+      hamburgerimg.addEventListener('click',()=>
+    {
+      dropdown.classList.toggle('show');
+    });
+    </script>
+  </body>
+</html>

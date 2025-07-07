@@ -1,0 +1,282 @@
+
+.header
+{
+  background-color: black;
+  position: fixed;
+  display:flex;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  height: 60px;
+  z-index: 1000;
+  /*justify-content: space-between;*/
+}
+
+.Left-section
+{
+  color: white;
+  
+  width: 135px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.amazon-header-link:hover
+{
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.amazon-header-img
+{
+  margin-left: 20px;
+  width: 75%;
+  
+}
+.amazon-mobile-logo-white
+{
+  display:none;
+}
+
+@media(max-width: 575px)
+{
+  .Left-section
+  {
+    width: 70px;
+  }
+  /*.search-bar
+  {
+    width:300px;
+  }*/
+  .amazon-header-img
+  {
+    display: none;
+  }
+  .amazon-mobile-logo-white
+  {
+    display: block;
+    height: 35px;
+    margin-top: 5px;
+  }
+  
+}
+
+
+@media(min-width:575px )
+{
+  /*.Middle-section
+  {
+    margin-left: 200px;
+    margin-right: 130px;
+  }*/
+  .header
+  {
+    justify-content: space-between;
+  }
+  .amazon-header-img
+  {
+    margin-left: 20px;
+  }
+
+}
+.Middle-section
+{
+  color: white;
+  display: flex;
+  align-items: center;
+  /*flex-shrink: 1;*/
+  /*flex-grow: 1;*/
+  flex: 1;
+  /*flex-basis: 0%;*/
+  max-width: 840px; /*if it grows dont make it beyond 840*/
+
+}
+
+.search-bar
+{
+  
+  height: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  border: none;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  padding-left: 10px;
+  flex: 1;       /*flex:1 is described here as well as in the middle section because input is a child of middle section and it will take only tht much space as the parent has*/
+  width: 0px;    /*srink*/
+  outline: none;
+}
+.search-bar:active
+{
+  border-color:rgb(254, 189, 105); 
+  border-width: 3px;
+  border-style: solid;
+}
+
+.search-icon
+{
+  height: 42px;
+  width: 40px;
+  border: none;
+  background-color:rgb(254, 189, 105);
+  padding:5px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.search-img
+{
+  width: 20px;
+  object-fit: cover;
+}
+
+.Right-section
+{
+  color: white;
+  width: 190px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  /*flex-shrink: 0;*/
+}
+
+.return-order
+{
+  cursor: pointer;
+  color: white;
+  font-family: Arial;
+  text-decoration: none;
+  
+}
+.return-order:hover
+{
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  padding: 4px;
+}
+.return-text
+{
+  display: block;
+  font-size: 14px;
+}
+.order-text
+{
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+}
+.cart-link
+{
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+}
+.cart-link:hover
+{
+  border-color: white;
+  border-width: 1px;
+  border-style: solid;
+  padding: 2px;
+}
+.cart
+{
+  display: flex;
+  align-items: end;
+  
+}
+.cart-icon
+{
+  width:50px;
+  margin-left: 10px;
+}
+.cart-quantity
+{
+  position: absolute;
+  top: 10px;
+  right: 70px;
+}
+.cart-color
+{
+  color:rgb(252, 85, 24);
+  font-family: Arial;
+  font-weight: 600;
+}
+.cart-text
+{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial;
+  margin-right: 20px;
+}
+
+.hamburger-img,
+.dropdown-link
+{
+  display: none;
+}
+
+@media(max-width:575px)
+{
+  .Right-section
+  {
+    width: 40px;
+    margin-right: 20px;
+  }
+  .return-order
+  {
+    display: none;
+  }
+  .cart-link
+  {
+    display: none;
+  }
+  .hamburger-img
+  {
+    display: block;
+    height: 15px;
+    margin-top: 5px;
+    cursor: pointer;
+  }
+  .dropdown-link
+  {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    position: absolute;
+    left: 0px;
+    right: 0;
+    top: 60px;
+    height: 80px;
+  }
+  .dropdown-link a
+  {
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    font-family: Arial;
+  }
+  .return-dropdown
+  {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .dropdown-link.show
+  {
+    display: flex;
+  }
+  .cartDropdown-quantity
+  {
+    color: rgb(252, 85, 24);
+  }
+  .cart-quantity
+  {
+    display: none;
+  }
+}
