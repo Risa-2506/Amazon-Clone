@@ -1,5 +1,5 @@
 import {products} from '../data/products.js';
-import {cart} from '../data/cart.js'
+import {cart} from '../data/cartData.js'
 
 let productsHTML='';
 
@@ -46,6 +46,8 @@ products.forEach((product) =>
 );
 
 document.querySelector('.js-product-grid').innerHTML=productsHTML;
+
+
 document.querySelectorAll('.js-add-to-cart').
   forEach((button)=>
   {
@@ -60,7 +62,7 @@ document.querySelectorAll('.js-add-to-cart').
           matchingitem=item;
         }
       });
-      if(matchingitem)
+        if(matchingitem)
         {
           matchingitem.quantity+=1;
         }
@@ -71,6 +73,13 @@ document.querySelectorAll('.js-add-to-cart').
             quantity:1
           });
         }
-        console.log(cart);
+      let cartQuantity=0;
+      cart.forEach((item) =>
+      {
+        cartQuantity+=item.quantity;
+      });
+      
+      document.querySelector('.js-cart-color').innerHTML=cartQuantity;
+      document.querySelector('.js-cartDropdown-quantity').innerHTML=cartQuantity;
     });
   });
