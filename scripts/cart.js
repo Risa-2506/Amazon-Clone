@@ -29,8 +29,16 @@ cart.forEach((item) =>
                 <div class="price">
                   $${(matchingitem.priceCents/100).toFixed(2)}
                 </div>
-                <div class="quantity">
-                  Quantity: ${item.quantity}
+                <div class="quantity-update-delete">
+                  <span class="quantity">
+                    Quantity: ${item.quantity}
+                  </span>
+                  <span class="update-link">
+                    Update
+                  </span>
+                  <span class="delete-link">
+                    Delete
+                  </span>
                 </div>
               </div>
             </div>

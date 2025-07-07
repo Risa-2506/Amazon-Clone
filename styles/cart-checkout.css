@@ -93,9 +93,22 @@
   font-size: 16px;
   margin-bottom: 10px;
 }
-.quantity
+.quantity,
+.update-link,
+.delete-link
 {
   font-family: Arial;
+}
+.update-link,
+.delete-link
+{
+  color: #017cb6;
+}
+.update-link:hover,
+.delete-link:hover
+{
+  cursor: pointer;
+  color:rgb(177, 39, 4) ;
 }
 .delivery-options
 {
