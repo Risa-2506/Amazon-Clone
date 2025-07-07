@@ -1,0 +1,45 @@
+import {products} from '../data/products.js';
+
+let productsHTML='';
+
+products.forEach((product) =>
+{
+  productsHTML+=`
+      <div class="product-container">
+        <div class="product-img-container">
+          <img src="${product.image}" class="product-img">
+        </div>
+        <div class="product-name">
+          ${product.name}
+        </div>
+        <div class="product-rating-container">
+          <img src="rating-img/rating-${product.rating.count*10}.png" class="product-rating-img">
+          <div class="product-rating-quantity">87</div>
+        </div>
+        <div class="product-price">
+          ${(product.priceCents/100).toFixed(2)}
+        </div>
+        <div class="product-quantity-container">
+            <select class="js-quantity-selector" data-testid="quantity-selector">
+              <option selected="" value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </div>
+        <div class="added-to-cart">
+          <img src="checkmark.png" class="checkmark">
+          Added
+        </div>
+        <div>
+          <button class="add-to-cart-button">Add to Cart</button>
+        </div>
+      </div>`;
+}
+);
