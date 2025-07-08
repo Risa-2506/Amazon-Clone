@@ -131,6 +131,16 @@ document.querySelectorAll('.Save')
       const quantity=document.querySelector(`.js-quantity-${matchingitemId}`);
       const newQuantity=Number(input.value);
       document.querySelector(`.js-quantity-${matchingitemId}`).innerHTML=newQuantity;
+      let cartQuantity=0;
+      cart.forEach((item)=>
+      {
+        if(item.productId===matchingitemId)
+        {
+          item.quantity=newQuantity;
+        }
+        cartQuantity+=item.quantity;
+      });
+      document.querySelector('.js-cart-quantity').innerHTML=cartQuantity + ' items';
       input.classList.remove('input-display');
       updateLink.classList.remove('update-display');
       saveLink.classList.remove('save-display');
