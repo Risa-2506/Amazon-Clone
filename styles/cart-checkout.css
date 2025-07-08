@@ -95,21 +95,48 @@
 }
 .quantity,
 .update-link,
-.delete-link
+.delete-link,
+.Save
 {
   font-family: Arial;
 }
 .update-link,
-.delete-link
+.delete-link,
+.Save
 {
   color: #017cb6;
 }
 .update-link:hover,
-.delete-link:hover
+.delete-link:hover,
+.Save:hover
 {
   cursor: pointer;
   color:rgb(177, 39, 4) ;
 }
+.input-number
+{
+  width: 30px;
+}
+.input-number,
+.Save
+{
+  display: none;
+}
+.input-display,
+.save-display
+{
+  display: initial;
+}
+.input-display-disappear
+{
+  display: none;
+}
+.update-display,
+.quantity-display
+{
+  display: none;
+}
+
 .delivery-options
 {
   display: flex;
