@@ -1,4 +1,4 @@
-import {cart} from '../data/cartData.js';
+import {cart,removeFromCart, saveTostorage} from '../data/cartData.js';
 import {products} from '../data/products.js';
 
 let cartHTML='';
@@ -13,7 +13,7 @@ cart.forEach((item) =>
     }
   });
   cartHTML+=`
-        <div class="cart-checkout">         <!--Date+ product det + del options-->
+        <div class="cart-checkout js-cart-${matchingitem.id}">         <!--Date+ product det + del options-->
           <div class="delivery-date">       <!--Date-->
             Delivery Date:
           </div>
@@ -38,7 +38,7 @@ cart.forEach((item) =>
                   </span>
                   <input type="number" class="input-number js-input-number-${matchingitem.id}">
                   <span class="Save js-save-link-${matchingitem.id}" data-matching-item-id="${matchingitem.id}">Save</span>
-                  <span class="delete-link">
+                  <span class="delete-link js-delete-link" data-product-id="${matchingitem.id}">
                     Delete
                   </span>
                 </div>
@@ -141,10 +141,32 @@ document.querySelectorAll('.Save')
         cartQuantity+=item.quantity;
       });
       document.querySelector('.js-cart-quantity').innerHTML=cartQuantity + ' items';
+      saveTostorage();
       input.classList.remove('input-display');
       updateLink.classList.remove('update-display');
       saveLink.classList.remove('save-display');
       quantity.classList.remove('quantity-display');
     });
-    
+
   });
+
+
+  document.querySelectorAll('.js-delete-link')
+    .forEach((deleteLink)=>
+    {
+      deleteLink.addEventListener('click',()=>
+      {
+        const productId=deleteLink.dataset.productId;
+        removeFromCart(productId);
+        const container=document.querySelector(`.js-cart-${productId}`);
+        container.remove();
+        let cartQuantity=0;
+        cart.forEach((item)=>
+        {
+          cartQuantity+=item.quantity;
+        });
+        saveTostorage();
+        document.querySelector('.js-cart-quantity').innerHTML=cartQuantity + ' items';
+        saveTostorage();
+      });
+    });
