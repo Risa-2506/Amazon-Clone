@@ -34,7 +34,7 @@ products.forEach((product) =>
               <option value="10">10</option>
             </select>
           </div>
-        <div class="added-to-cart">
+        <div class="added-to-cart js-added-to-cart-${product.id}">
           <img src="checkmark.png" class="checkmark">
           Added
         </div>
@@ -73,7 +73,13 @@ document.querySelectorAll('.js-add-to-cart').
             quantity:1
           });
         }
-        saveTostorage();
+       saveTostorage();
+       const checkmark=document.querySelector(`.js-added-to-cart-${productId}`);
+       checkmark.classList.add('checkmark-display');
+       setTimeout(()=>
+      {
+        checkmark.classList.remove('checkmark-display');
+      },1000);
       const selectNumber=Number(document.querySelector(`.js-quantity-selector-${productId}`).value);
       cart.forEach((item)=>
       {

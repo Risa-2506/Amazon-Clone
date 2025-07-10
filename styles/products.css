@@ -132,6 +132,10 @@ select
   width: 20px;
   margin-right: 3px;
 }
+.checkmark-display
+{
+  opacity: 1;
+}
 .add-to-cart-button
 {
   width: 100%;
