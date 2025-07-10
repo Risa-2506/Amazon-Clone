@@ -101,6 +101,8 @@ cart.forEach((item) =>
 document.querySelector('.js-cart-summary').innerHTML=cartHTML;
 document.querySelector('.js-cart-quantity').innerHTML=cartQuantity + ' items';
 
+
+/*Update section*/
 document.querySelectorAll('.update-link')
   .forEach((update)=>
   {
@@ -119,6 +121,7 @@ document.querySelectorAll('.update-link')
     );
   });
 
+/*Save section*/
 document.querySelectorAll('.Save')
   .forEach((save)=>
   {
