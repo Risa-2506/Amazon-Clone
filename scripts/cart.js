@@ -1,5 +1,7 @@
 import {cart,removeFromCart, saveTostorage} from '../data/cartData.js';
 import {products} from '../data/products.js';
+import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
+import { deliveryOptions } from '../data/deliveryOptions.js';
 
 let cartHTML='';
 cart.forEach((item) =>
@@ -92,6 +94,44 @@ cart.forEach((item) =>
          </div>`;
 
 });
+delivery();
+function delivery()
+{
+  let deliverHTML='';
+  deliveryOptions.forEach((deliveryOption) =>
+  {
+    const today =dayjs();
+    const deliveryDate=today.add(deliveryOption.deliveryDays,'days');
+    const dateString=deliveryDate.format('dddd, MMMM D');
+    function price()
+    {
+      if(deliveryOption.priceCents===0)
+        return 'FREE';
+      else
+      {
+        return `$${(deliveryOption.priceCents/100).toFixed(2)}`;
+      }
+    }
+    deliverHTML+=
+    `
+      <div class="delivery-option-select">
+        <div class="radio-btn">
+          <input type="radio" name="1">
+        </div>
+        <div class="delivery-option-detail">
+          <div class="delivery-option-date">
+            ${dateString}
+          </div>
+          <div class="delivery-option-price">
+            ${price()} Shipping
+          </div>
+        </div>
+      </div>
+    `
+  });
+  console.log(deliverHTML);
+}
+
 
 let cartQuantity=0;
 cart.forEach((item) =>
