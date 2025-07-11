@@ -50,52 +50,14 @@ cart.forEach((item) =>
               <div class="delivery-text">
                 Choose a delivery option:
               </div>
-              <div class="delivery-option-select">
-                <div class="radio-btn">
-                  <input type="radio" name="1">
-                </div>
-                <div class="delivery-option-detail">
-                  <div class="delivery-option-date">
-                   Thursday, July 10
-                 </div>
-                 <div class="delivery-option-price">
-                   FREE Shipping
-                 </div>
-                </div>
-              </div>
-              <div class="delivery-option-select">
-                <div class="radio-btn">
-                  <input type="radio" name="1">
-                </div>
-                <div class="delivery-option-detail">
-                  <div class="delivery-option-date">
-                   Thursday, July 10
-                 </div>
-                 <div class="delivery-option-price">
-                   FREE Shipping
-                 </div>
-                </div>
-              </div>
-              <div class="delivery-option-select">
-                <div class="radio-btn">
-                  <input type="radio" name="1">
-                </div>
-                <div class="delivery-option-detail">
-                  <div class="delivery-option-date">
-                   Thursday, July 10
-                 </div>
-                 <div class="delivery-option-price">
-                   FREE Shipping
-                 </div>
-                </div>
-              </div>
+              ${delivery(matchingitem)}
             </div>
           </div>
          </div>`;
 
 });
-delivery();
-function delivery()
+
+function delivery(matchingitem)
 {
   let deliverHTML='';
   deliveryOptions.forEach((deliveryOption) =>
@@ -116,7 +78,7 @@ function delivery()
     `
       <div class="delivery-option-select">
         <div class="radio-btn">
-          <input type="radio" name="1">
+          <input type="radio" name=${matchingitem.id}>
         </div>
         <div class="delivery-option-detail">
           <div class="delivery-option-date">
@@ -129,7 +91,7 @@ function delivery()
       </div>
     `
   });
-  console.log(deliverHTML);
+  return deliverHTML;
 }
 
 
