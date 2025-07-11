@@ -50,14 +50,14 @@ cart.forEach((item) =>
               <div class="delivery-text">
                 Choose a delivery option:
               </div>
-              ${delivery(matchingitem)}
+              ${delivery(matchingitem,item)}
             </div>
           </div>
          </div>`;
 
 });
 
-function delivery(matchingitem)
+function delivery(matchingitem,item)
 {
   let deliverHTML='';
   deliveryOptions.forEach((deliveryOption) =>
@@ -74,11 +74,14 @@ function delivery(matchingitem)
         return `$${(deliveryOption.priceCents/100).toFixed(2)}`;
       }
     }
+    const isChecked=item.deliveryOptionId===deliveryOption.id;
     deliverHTML+=
     `
-      <div class="delivery-option-select">
+      <div class="delivery-option-select js-delivery-option" data-deliveryoption-id="${deliveryOption.id}" 
+        data-product-id="${matchingitem.id}">
         <div class="radio-btn">
-          <input type="radio" name=${matchingitem.id}>
+          <input type="radio" name=${matchingitem.id} 
+            ${isChecked ? 'checked' : ''}>
         </div>
         <div class="delivery-option-detail">
           <div class="delivery-option-date">
@@ -175,3 +178,22 @@ document.querySelectorAll('.Save')
         saveTostorage();
       });
     });
+
+    document.querySelectorAll('.js-delivery-option')
+      .forEach((option)=>
+      {
+        option.addEventListener('click',()=>
+        {
+          const deliveryoptionId=option.dataset.deliveryoptionId;
+          const productId=option.dataset.productId;
+          cart.forEach((item)=>
+          {
+            if(productId===item.productId)
+            {
+              item.deliveryOptionId=deliveryoptionId;
+            }
+          });
+          saveTostorage();
+          console.log(cart);
+        });
+      });
