@@ -23,6 +23,10 @@ function renderSummary()
         if(option.id===item.deliveryOptionId)
           deliveryOption=option;
       });
+      if (!deliveryOption) 
+      {
+        deliveryOption = deliveryOptions[0];
+      }
       const today =dayjs();
       const deliveryDate=today.add(deliveryOption.deliveryDays,'days');
       const dateString=deliveryDate.format('dddd, MMMM D');
@@ -86,7 +90,7 @@ function renderSummary()
             return `$${(deliveryOption.priceCents/100).toFixed(2)}`;
           }
         }
-        const isChecked=item.deliveryOptionId===deliveryOption.id;
+        const isChecked =deliveryOption.id===item.deliveryOptionId;
         deliverHTML+=
         `
           <div class="delivery-option-select js-delivery-option" data-deliveryoption-id="${deliveryOption.id}" 
