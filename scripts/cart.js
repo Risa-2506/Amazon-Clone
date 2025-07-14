@@ -214,7 +214,6 @@ function renderSummary()
             });
           });
 }
-
-renderpayment();
-document.querySelector('.js-price-checkout').innerHTML=renderpayment();
+renderpayment(cart,products);
+document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products);
 renderSummary();

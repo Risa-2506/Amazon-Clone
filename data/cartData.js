@@ -32,9 +32,25 @@ export function removeFromCart(productId)
   saveTostorage();
 }
 
-export function renderpayment()
+export function renderpayment(cart,products)
 {
   let payment='';
+  let cartQuantity=0;
+  let matchingitem='';
+  let totalprice=0;
+  cart.forEach((item)=>
+  {
+    
+    cartQuantity+=item.quantity;
+    products.forEach((product)=>
+    {
+      if(product.id===item.productId)
+      {
+        matchingitem=product;
+      }
+    });
+    totalprice+=matchingitem.priceCents;
+  });
   payment+=
   `
           <div class="price-title">
@@ -44,10 +60,10 @@ export function renderpayment()
           <div class="price-calculation">
             <div class="item">
               <div class="item-name">
-                Items(2)
+                Items(${cartQuantity})
               </div>
               <div class="item-price">
-                $31.85
+                $${(totalprice/100).toFixed(2)}
               </div>
             </div>
             <div class="shipping">
