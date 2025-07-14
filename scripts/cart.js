@@ -1,4 +1,4 @@
-import {cart,removeFromCart, saveTostorage} from '../data/cartData.js';
+import {cart,removeFromCart, saveTostorage,renderpayment} from '../data/cartData.js';
 import {products} from '../data/products.js';
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js';
 import { deliveryOptions } from '../data/deliveryOptions.js';
@@ -215,4 +215,6 @@ function renderSummary()
           });
 }
 
+renderpayment();
+document.querySelector('.js-price-checkout').innerHTML=renderpayment();
 renderSummary();

@@ -31,3 +31,65 @@ export function removeFromCart(productId)
   cart=newCart;
   saveTostorage();
 }
+
+export function renderpayment()
+{
+  let payment='';
+  payment+=
+  `
+          <div class="price-title">
+            Order Summary
+          </div>
+
+          <div class="price-calculation">
+            <div class="item">
+              <div class="item-name">
+                Items(2)
+              </div>
+              <div class="item-price">
+                $31.85
+              </div>
+            </div>
+            <div class="shipping">
+              <div class="shipping-name">
+                Shipping & handling:
+              </div>
+              <div class="shipping-price">
+                $0.00
+              </div>
+            </div>
+            <div class="total-bef-tax">
+              <div calss="total-bef-tax-name">
+                Total before tax:
+              </div>
+              <div class="total-bef-tax-price">
+                $31.85
+              </div>
+            </div>
+            <div class="tax">
+              <div class="tax-name">
+                Estimated tax (10%):
+              </div>
+              <div class="tax-price">
+                $3.19
+              </div>
+            </div>
+          </div>
+
+          <div class="price-total">
+            <div class="order-summary">
+              <div class="order-summary-title">
+                Order total:
+              </div>
+              <div class="order-price">
+                $35.04
+              </div>
+            </div>
+            <div class="order-btn">
+              <a href="orders.html"><button class="order-btn-css">Place your order</button></a>
+            </div>
+          </div>
+  
+  `
+  return payment;
+}
