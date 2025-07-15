@@ -170,6 +170,8 @@ function renderSummary()
           updateLink.classList.remove('update-display');
           saveLink.classList.remove('save-display');
           quantity.classList.remove('quantity-display');
+          renderpayment(cart,products,deliveryOptions);
+          document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products,deliveryOptions);
         });
 
       });
@@ -191,10 +193,11 @@ function renderSummary()
             });
             saveTostorage();
             document.querySelector('.js-cart-quantity').innerHTML=cartQuantity + ' items';
+            renderpayment(cart,products,deliveryOptions);
+            document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products,deliveryOptions);
             saveTostorage();
           });
         });
-
         document.querySelectorAll('.js-delivery-option')
           .forEach((option)=>
           {
@@ -210,10 +213,12 @@ function renderSummary()
                 }
               });
               renderSummary();
+              renderpayment(cart,products,deliveryOptions);
+              document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products,deliveryOptions);
               saveTostorage();
             });
           });
 }
-renderpayment(cart,products);
-document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products);
+renderpayment(cart,products,deliveryOptions);
+document.querySelector('.js-price-checkout').innerHTML=renderpayment(cart,products,deliveryOptions);
 renderSummary();

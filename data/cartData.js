@@ -1,4 +1,5 @@
 export let cart=JSON.parse(localStorage.getItem('cart')) || [];
+import { deliveryOptions } from "./deliveryOptions.js";
 /*
 if (!cart) 
 {
@@ -32,12 +33,17 @@ export function removeFromCart(productId)
   saveTostorage();
 }
 
-export function renderpayment(cart,products)
+export function renderpayment(cart,products,deliveryOptions)
 {
   let payment='';
   let cartQuantity=0;
   let matchingitem='';
   let totalprice=0;
+  let deliveryOption='';
+  let deliveryOptionPrice=0;
+  let totalbeftax=0;
+  let estimatedtax=0;
+  let total=0;
   cart.forEach((item)=>
   {
     
@@ -47,10 +53,24 @@ export function renderpayment(cart,products)
       if(product.id===item.productId)
       {
         matchingitem=product;
+        deliveryOptions.forEach((option)=>
+        {
+          if(option.id===item.deliveryOptionId)
+          {
+            deliveryOption=option;
+          }
+          
+        });
       }
     });
-    totalprice+=matchingitem.priceCents;
+    
+    totalprice+=matchingitem.priceCents*item.quantity;
+    deliveryOptionPrice+=deliveryOption.priceCents;
+    
   });
+  totalbeftax+=(totalprice+deliveryOptionPrice)/100;
+  estimatedtax=totalbeftax*0.1;
+  total=totalbeftax+estimatedtax;
   payment+=
   `
           <div class="price-title">
@@ -71,7 +91,7 @@ export function renderpayment(cart,products)
                 Shipping & handling:
               </div>
               <div class="shipping-price">
-                $0.00
+                $${(deliveryOptionPrice/100).toFixed(2)}
               </div>
             </div>
             <div class="total-bef-tax">
@@ -79,7 +99,7 @@ export function renderpayment(cart,products)
                 Total before tax:
               </div>
               <div class="total-bef-tax-price">
-                $31.85
+                $${(totalbeftax).toFixed(2)}
               </div>
             </div>
             <div class="tax">
@@ -87,18 +107,17 @@ export function renderpayment(cart,products)
                 Estimated tax (10%):
               </div>
               <div class="tax-price">
-                $3.19
+                $${estimatedtax.toFixed(2)}
               </div>
             </div>
           </div>
-
           <div class="price-total">
             <div class="order-summary">
               <div class="order-summary-title">
                 Order total:
               </div>
               <div class="order-price">
-                $35.04
+                $${total.toFixed(2)}
               </div>
             </div>
             <div class="order-btn">
@@ -108,4 +127,5 @@ export function renderpayment(cart,products)
   
   `
   return payment;
+
 }
